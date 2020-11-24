@@ -1,0 +1,100 @@
+import Foundation
+
+
+protocol EntryName {
+    var width : String {get}
+    var length : String {get}
+    var perimetr : String {get}
+}
+
+
+class Figures {
+
+    var name: String
+    var cornerRadius: String
+    var fullName: String {
+        return name + "" + cornerRadius
+    }
+    
+    init(name: String, cornerRadius: String) {
+        
+        self.name = name
+        self.cornerRadius = cornerRadius
+    }
+}
+
+
+class Triangle: Figures {
+    func MethodCountingArea() -> String {
+        return "S= 0,5 * a * b * sina"
+    }
+}
+extension Double {
+    var side1: Double {return self}
+    var side2 : Double {return self}
+    var sin: Double {return self}
+}
+var side01: Double = ***
+var side02: Double = ***
+var sina: Double = ***
+var squaredT = 0.5 * side01 * side02 * sina
+
+
+class Circle {
+    var name: String
+    
+    init(name: String) {
+        self.name = name
+    }
+    
+    func MethodCountingArea() -> String {
+        return "S = 3,14 * r**2"
+    }
+}
+extension Double {
+    var r: Double {return self}
+}
+
+var R: Double = ***
+var squaredC = 3.14 * R * R
+
+
+class Rectangle: Figures, EntryName {
+    var width: String {
+        return "width"
+    }
+    var length: String {
+            return "length"
+        }
+    var perimetr: String {
+            return "perimetr"
+        }
+
+    func MethodCountingArea() -> String {
+        return "S = width * length"
+    }
+}
+extension Double {
+        var w: Double {return self}
+        var l: Double {return self}
+    }
+var W: Double = ***
+var L: Double = ***
+var squaredR = W * L
+
+
+let figure1 = Triangle(name: "Triangle", cornerRadius: "sin a")
+let figure3 = Rectangle(name: "Rectangle", cornerRadius: "nothing")
+let figure2 = Circle (name: "Circle")
+
+
+func printfigure3(array: [EntryName]) {
+    for value in array {
+        print(value.length)
+        print(value.width)
+        print(value.perimetr)
+    }
+}
+var array: [Any] =
+[figure1, figure2, figure3]
+print(array)
